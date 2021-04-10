@@ -27,15 +27,20 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'images/[name][ext]'
-        },
+        }
+      },
+      {
+        test: /\.pug/,
         use: [
-          // {
-          //   loader: 'file-loader',
-          //   options: {
-          //     esModule: false,
-          //     name: 'images/[name].[ext]'
-          //   }
-          // }
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader: 'pug-html-loader',
+            options: {
+              pretty: true
+            }
+          }
         ]
       }
     ]
@@ -45,7 +50,12 @@ module.exports = {
       filename: './stylesheets/main.css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/templates/index.html'
+      template: './src/templates/index.pug',
+      filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/access.pug',
+      filename: 'access.html'
     }),
     new CleanWebpackPlugin()
   ]
