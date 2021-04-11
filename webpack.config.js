@@ -89,6 +89,17 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.ejs/,
+        use: [
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader: 'ejs-plain-loader'
+          }
+        ]
       }
     ]
   },
@@ -97,15 +108,15 @@ module.exports = {
       filename: './stylesheets/main.css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/templates/index.pug',
+      template: './src/templates/index.ejs',
       filename: 'index.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/templates/access.pug',
+      template: './src/templates/access.ejs',
       filename: 'access.html'
     }),
     new HtmlWebpackPlugin({
-      template: './src/templates/members/taro.pug',
+      template: './src/templates/members/taro.ejs',
       filename: 'members/taro.html'
     }),
     new CleanWebpackPlugin()
