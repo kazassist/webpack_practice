@@ -7,9 +7,20 @@
   <title>Index</title>
 </head>
 <body>
-  <%- include('./common/header.ejs') %>
+  <%
+    const data = {
+      title: 'インデックス'
+    }
+  %>
+  <%- include('./common/header.ejs', {data: {}}) %>
   <%- include('./common/menu.ejs') %>
   <h1>Index</h1>
+  <% const para = '<p>Hello EJS!</p>'; %>
+  <div><%= para %></div>
+  <div><%- para %></div>
+  <% for (var i = 0; i < 10; i++) { %>
+  <p>このループは<%= i+1 %>回目です。</p>
+  <% } %>
   <img src="../images/icon.png" alt="">
   <img src="../images/thumbnail.jpg" alt="">
 </body>

@@ -7,7 +7,12 @@
   <title>Taro</title>
 </head>
 <body>
-  <%- include('../common/header.ejs') %>
+  <%
+    const data = {
+      title: 'タロー'
+    }
+  %>
+  <%- include('../common/header.ejs', {data: data}) %>
   <%- include('../common/menu.ejs') %>
   <h1>Taro</h1>
 </body>
